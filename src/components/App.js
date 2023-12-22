@@ -1,14 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Header from "./Header/Header.js";
+import WeatherCard from "./WeatherCard/WeatherCard.js";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Main />
+      <main className="main">
+        <WeatherCard day={true} type="cloudy" />
+      </main>
+      {/*<Main />
+      {/* 
       <Footer />
       <ModalWithForm />
-      <ItemModal />
+      <ItemModal /> */}
     </div>
   );
 }

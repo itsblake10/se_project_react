@@ -1,0 +1,65 @@
+.header {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  padding: 30px 40px 0 40px;
+  border: solid 1px black;
+}
+
+.header__container-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header__container-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.header__logo {
+  width: 89px;
+  height: 40px;
+}
+
+.header__date {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24px;
+  font-weight: 700;
+  min-width: 160px;
+  min-height: 24px;
+  margin-left: 24px;
+  margin-top: 11px;
+  align-self: center;
+}
+
+.header__add-clothing-button {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24px;
+  font-weight: 700;
+  background: none;
+  border: none;
+  max-width: 116px;
+  max-height: 24px;
+  align-self: center;
+}
+
+.header__profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header__profile-name {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24.8px;
+  font-weight: 700;
+  min-width: 157px;
+  margin: 0 12px 0 20px;
+}
+
+.header__profile-avatar {
+  width: 40px;
+  height: 40px;
+}
