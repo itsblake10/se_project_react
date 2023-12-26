@@ -1,7 +1,6 @@
 .weather-card {
-  border: solid black 1px;
-  margin-top: 28px;
   position: relative;
+  margin: 28px 0 0 0;
 }
 
 .weather-card__info {
@@ -11,7 +10,7 @@
   color: white;
   line-height: 40px;
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 20px;
   z-index: 1;
   margin: 0;

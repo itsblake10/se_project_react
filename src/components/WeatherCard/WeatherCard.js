@@ -76,16 +76,16 @@ const weatherOptions = [
   },
 ];
 
-const WeatherCard = ({ day, type }) => {
-  const imageSrc = weatherOptions.filter((i) => {
-    return i.day === day && i.type === type;
-  });
+const WeatherCard = (/*{ day, type }*/) => {
+  //   const imageSrc = weatherOptions.filter((i) => {
+  //     return i.day === day && i.type === type;
+  //   });
 
-  console.log(imageSrc);
+  //   console.log(imageSrc);
 
-  const imageSrcUrl = imageSrc[0].url || "";
+  //   const imageSrcUrl = imageSrc[0].url || "";
 
-  console.log(imageSrcUrl);
+  //   console.log(imageSrcUrl);
 
   return (
     <section>
@@ -93,7 +93,8 @@ const WeatherCard = ({ day, type }) => {
         <p className="weather-card__info">75°F</p>
         <img
           className="weather-card__image"
-          src={imageSrcUrl}
+          //   src={imageSrcUrl}
+          src="/images/weatherConditions/day/day-cloudy.svg"
           alt="Current Weather"
         />
       </div>

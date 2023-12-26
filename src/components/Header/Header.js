@@ -4,7 +4,11 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container-left">
-        <img className="header__logo" src="/images/headerLogo.svg" alt="Logo" />
+        <img
+          className="header__logo"
+          src="/images/header/headerLogo.svg"
+          alt="Logo"
+        />
         <div className="header__date">DATE/LOCATION</div>
       </div>
       <div className="header__container-right">
@@ -13,7 +17,7 @@ const Header = () => {
           <p className="header__profile-name">NAME NAMENAME</p>
           <img
             className="header__profile-avatar"
-            src="/images/headerAvatar.svg"
+            src="/images/header/headerAvatar.svg"
             alt="Profile Avatar"
           />
         </div>

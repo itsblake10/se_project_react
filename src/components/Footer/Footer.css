@@ -1,0 +1,30 @@
+.footer {
+  margin: 171px 0 0 0;
+  padding: 0 40px 24px 40px;
+  max-width: 1360px;
+}
+
+.footer__info {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer__signature {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+.footer__date {
+  margin: 0;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
