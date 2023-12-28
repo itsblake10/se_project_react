@@ -11,7 +11,7 @@ function handleCardClick() {
 const ItemCard = ({ item }) => {
   return (
     <>
-      <li className="item__card">
+      <li className="item__card" key={item._id}>
         <div className="item__card-info">
           <p className="item__card-name">{item.name}</p>
           <button className="item__card-like-button" onClick={handleLikeButton}>

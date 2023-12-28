@@ -3,89 +3,77 @@ import "./WeatherCard.css";
 const weatherOptions = [
   /* ----------------------------------- DAY ---------------------------------- */
   {
-    url: "/images/weatherConditions/day/day-cloudy.svg",
+    url: require("../../images/weatherConditions/day/day-cloudy.svg").default,
     day: true,
     type: "day-cloudy",
   },
-
   {
-    url: "/images/weatherConditions/day/day-fog.svg",
+    url: require("../../images/weatherConditions/day/day-fog.svg").default,
     day: true,
     type: "day-fog",
   },
-
   {
-    url: "/images/weatherConditions/day/day-rain.svg",
+    url: require("../../images/weatherConditions/day/day-rain.svg").default,
     day: true,
     type: "day-rain",
   },
-
   {
-    url: "/images/weatherConditions/day/day-snow.svg",
+    url: require("../../images/weatherConditions/day/day-snow.svg").default,
     day: true,
     type: "day-snow",
   },
-
   {
-    url: "/images/weatherConditions/day/day-storm.svg",
+    url: require("../../images/weatherConditions/day/day-storm.svg").default,
     day: true,
     type: "day-storm",
   },
-
   {
-    url: "/images/weatherConditions/day/day-sunny.svg",
+    url: require("../../images/weatherConditions/day/day-sunny.svg").default,
     day: true,
     type: "day-sunny",
   },
-
   /* ---------------------------------- NIGHT --------------------------------- */
   {
-    url: "/images/weatherConditions/night/night-cloudy.svg",
+    url: require("../../images/weatherConditions/night/night-cloudy.svg")
+      .default,
     day: false,
     type: "night-cloudy",
   },
-
   {
-    url: "/images/weatherConditions/night/night-fog.svg",
+    url: require("../../images/weatherConditions/night/night-fog.svg").default,
     day: false,
     type: "night-fog",
   },
-
   {
-    url: "/images/weatherConditions/night/night-rain.svg",
+    url: require("../../images/weatherConditions/night/night-rain.svg").default,
     day: false,
     type: "night-rain",
   },
-
   {
-    url: "/images/weatherConditions/night/night-snow.svg",
+    url: require("../../images/weatherConditions/night/night-snow.svg").default,
     day: false,
     type: "night-snow",
   },
-
   {
-    url: "/images/weatherConditions/night/night-storm.svg",
+    url: require("../../images/weatherConditions/night/night-storm.svg")
+      .default,
     day: false,
     type: "night-storm",
   },
-
   {
-    url: "/images/weatherConditions/night/night-sunny.svg",
+    url: require("../../images/weatherConditions/night/night-sunny.svg")
+      .default,
     day: false,
     type: "night-sunny",
   },
 ];
 
-const WeatherCard = (/*{ day, type }*/) => {
-  //   const imageSrc = weatherOptions.filter((i) => {
-  //     return i.day === day && i.type === type;
-  //   });
+const WeatherCard = ({ day, type }) => {
+  const imageSrc = weatherOptions.filter((options) => {
+    return options.day === day && options.type === type;
+  });
 
-  //   console.log(imageSrc);
-
-  //   const imageSrcUrl = imageSrc[0].url || "";
-
-  //   console.log(imageSrcUrl);
+  const imageSrcUrl = imageSrc[0].url || "";
 
   return (
     <section>
@@ -93,8 +81,7 @@ const WeatherCard = (/*{ day, type }*/) => {
         <p className="weather-card__info">75°F</p>
         <img
           className="weather-card__image"
-          //   src={imageSrcUrl}
-          src="/images/weatherConditions/day/day-cloudy.svg"
+          src={imageSrcUrl}
           alt="Current Weather"
         />
       </div>

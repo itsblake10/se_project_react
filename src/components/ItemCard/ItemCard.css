@@ -75,6 +75,5 @@
   display: grid;
   grid-template-columns: repeat(4, 328px);
   grid-auto-rows: 328px;
-  justify-content: flex-start;
   gap: 19px;
 }

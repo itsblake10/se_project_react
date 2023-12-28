@@ -1,6 +1,9 @@
 .weather-card {
+  display: flex;
   position: relative;
   margin: 28px 0 0 0;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .weather-card__info {
@@ -9,11 +12,10 @@
   font-size: 36px;
   color: white;
   line-height: 40px;
+  max-width: 69px;
   position: absolute;
-  top: 20px;
-  left: 20px;
+  margin: 0 0 0 18px;
   z-index: 1;
-  margin: 0;
 }
 
 .weather-card__image {

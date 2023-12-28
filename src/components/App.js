@@ -3,6 +3,7 @@ import Header from "./Header/Header.js";
 import WeatherCard from "./WeatherCard/WeatherCard.js";
 import ItemCard from "./ItemCard/ItemCard.js";
 import Footer from "./Footer/Footer.js";
+import ModalWithForm from "./ModalWithForm/ModalWithForm.js";
 
 const defaultClothingItems = [
   {
@@ -48,7 +49,7 @@ function App() {
     <div className="App">
       <Header />
       <main className="main">
-        <WeatherCard /*day={true} type="cloudy" */ />
+        <WeatherCard day={false} type="night-sunny" />
         <section className="home__grid">
           <p className="current__weather">
             Today is 75° F / You may want to wear:
@@ -61,7 +62,7 @@ function App() {
         </section>
       </main>
       <Footer />
-      {/*<Main />
+      <ModalWithForm />
       {/* 
       <ModalWithForm />
       <ItemModal /> */}
