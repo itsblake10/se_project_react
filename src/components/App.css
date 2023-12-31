@@ -10,7 +10,7 @@
 
 .current__weather {
   margin: 0 0 34px 0;
-  max-width: 330px;
+  max-width: fit-content;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 600;
   font-size: 18px;

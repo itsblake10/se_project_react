@@ -1,18 +1,18 @@
-.add-garment__modal {
+.item__modal {
   visibility: hidden;
   transition: visibility 0.2s, opacity 0.2s linear;
   opacity: 0;
 }
 
-.add-garment__modal_opened {
+.item__modal_opened {
   visibility: visible;
   transition: visibility 0.2s, opacity 0.2s linear;
   opacity: 1;
 }
 
-.add-garment__modal-container {
-  min-width: 496px;
-  min-height: 436px;
+.item__modal-container {
+  min-width: 498px;
+  min-height: 610px;
   background-color: white;
   position: fixed;
   top: 50%;
@@ -24,8 +24,8 @@
   z-index: 2;
 }
 
-.add-garment__modal-close-button {
-  background: transparent url(../../images/modalCloseIconGrey.svg) center
+.item__modal-close-button {
+  background: transparent url(../../images/modalCloseIconWhite.svg) center
     no-repeat;
   min-width: 20px;
   min-height: 20px;
@@ -34,22 +34,29 @@
   right: 25px;
   cursor: pointer;
   border: none;
-  z-index: 3;
 }
 
-.add-garment__modal-close-button:hover {
+.item__modal-close-button:hover {
   transform: scale(1.3);
   transition: 0.2s ease-in-out;
 }
 
-.add-garment__modal-title {
-  font-family: "Cabinet Grotesk", sans-serif;
-  line-height: 20px;
-  font-weight: 550;
-  max-width: 100%;
-  max-height: 20px;
-  margin: 28px 0 24px 28px;
+.item__modal-garment-image {
+  min-width: 100%;
+  min-height: 498px;
+  margin: 0;
 }
 
-/* .add-garment__modal-form {
-} */
+.item__modal-garment-type {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 20px 0 0 32px;
+}
+
+.item__modal-weather {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24px;
+  font-weight: 500;
+  margin: 12px 0 32px 32px;
+}

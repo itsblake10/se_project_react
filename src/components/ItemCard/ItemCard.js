@@ -1,4 +1,5 @@
 import "./ItemCard.css";
+import { useState } from "react";
 
 function handleLikeButton() {
   console.log("Liked!");
@@ -17,7 +18,7 @@ const ItemCard = ({ item }) => {
           <button className="item__card-like-button" onClick={handleLikeButton}>
             <img
               className="item__card-heart"
-              src="/images/heartIcon.svg"
+              src={require("../../images/heartIcon.svg").default}
               alt="Heart Icon"
             />
           </button>
