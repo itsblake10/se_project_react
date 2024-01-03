@@ -1,37 +1,20 @@
 import "./ModalWithForm.css";
 
-const ModalWithForm = () => {
+const ModalWithForm = ({ title, children, onClose, buttonText, name }) => {
   return (
-    <div className="add-garment__modal">
-      <div className="add-garment__modal-container">
-        <button className="add-garment__modal-close-button"></button>
-        <p className="add-garment__modal-title">New garment</p>
-        <form className="add-garment__modal-form">
-          <fieldset>
-            <label>Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={FormData.name}
-              //   onChange={handleInputChange}
-              required
-            ></input>
-            <label>Image</label>
-            <input
-              type="text"
-              id="image"
-              name="image"
-              value={FormData.link}
-              //   onChange={handleInputChange}
-              required
-            ></input>
-          </fieldset>
-          <fieldset>
-            <label>Select the weather type:</label>
-            <input type="radio"></input>
-          </fieldset>
-          <button className="add-garment__modal-add-button">Add garment</button>
+    <div className={`modal modal_type_${name}`}>
+      <div className="modal__container">
+        <button
+          className="modal__close-button"
+          type="button"
+          onClick={onClose}
+        ></button>
+        <p className="modal__title">{title}</p>
+        <form className="modal__form">
+          {children}
+          <button className="modal__submit-button" type="button">
+            {buttonText}
+          </button>
         </form>
       </div>
     </div>

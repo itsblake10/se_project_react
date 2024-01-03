@@ -1,10 +1,11 @@
 import "./Header.css";
 
-function handleAddClothesButton() {
-  console.log("Modal Opened");
-}
+const Header = ({ onCreateModal }) => {
+  const currentDate = new Date().toLocaleString("default", {
+    month: "long",
+    day: "numeric",
+  });
 
-const Header = () => {
   return (
     <header className="header">
       <div className="header__container-left">
@@ -13,13 +14,10 @@ const Header = () => {
           src={require("../../images/header/headerLogo.svg").default}
           alt="Logo"
         />
-        <div className="header__date">DATE/LOCATION</div>
+        <div className="header__date">{currentDate}/LOCATION</div>
       </div>
       <div className="header__container-right">
-        <button
-          className="header__add-clothing-button"
-          onClick={handleAddClothesButton}
-        >
+        <button className="header__add-clothing-button" onClick={onCreateModal}>
           + Add clothes
         </button>
         <div className="header__profile">

@@ -1,15 +1,15 @@
 import "./ItemCard.css";
-import { useState } from "react";
+// import { useState } from "react";
 
 function handleLikeButton() {
   console.log("Liked!");
 }
 
-function handleCardClick() {
-  console.log("Clicked!");
-}
+// function handleCardClick() {
+//   console.log("Clicked!");
+// }
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, onSelectItem }) => {
   return (
     <>
       <li className="item__card" key={item._id}>
@@ -23,7 +23,10 @@ const ItemCard = ({ item }) => {
             />
           </button>
         </div>
-        <button className="item__card-button" onClick={handleCardClick}>
+        <button
+          className="item__card-button"
+          onClick={() => onSelectItem(item)}
+        >
           <img className="item__card-image" src={item.link} alt="Garment" />
         </button>
       </li>

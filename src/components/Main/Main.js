@@ -3,11 +3,7 @@ import { defaultClothingItems } from "../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 
-const listItems = defaultClothingItems.map((item) => (
-  <ItemCard item={item} key={item._id} />
-));
-
-const Main = ({ weatherTemp }) => {
+const Main = ({ weatherTemp, onSelectItem }) => {
   return (
     <>
       <main className="main">
@@ -16,7 +12,15 @@ const Main = ({ weatherTemp }) => {
           <p className="current__weather">
             Today is {weatherTemp}°F / You may want to wear:
           </p>
-          <ul className="item__list">{listItems}</ul>
+          <ul className="item__list">
+            {defaultClothingItems.map((item) => (
+              <ItemCard
+                item={item}
+                key={item._id}
+                onSelectItem={onSelectItem}
+              />
+            ))}
+          </ul>
         </section>
       </main>
     </>

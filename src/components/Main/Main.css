@@ -1,0 +1,13 @@
+.main {
+  padding: 0 40px;
+}
+
+.current__weather {
+  margin: 0 0 34px 0;
+  max-width: fit-content;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: black;
+  line-height: 24.8px;
+}

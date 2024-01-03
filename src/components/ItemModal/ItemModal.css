@@ -1,13 +1,5 @@
 .item__modal {
-  visibility: hidden;
   transition: visibility 0.2s, opacity 0.2s linear;
-  opacity: 0;
-}
-
-.item__modal_opened {
-  visibility: visible;
-  transition: visibility 0.2s, opacity 0.2s linear;
-  opacity: 1;
 }
 
 .item__modal-container {
@@ -45,6 +37,8 @@
   min-width: 100%;
   min-height: 498px;
   margin: 0;
+  border-top-right-radius: 5%;
+  border-top-left-radius: 5%;
 }
 
 .item__modal-garment-type {
