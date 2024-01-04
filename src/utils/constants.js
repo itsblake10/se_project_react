@@ -1,6 +1,3 @@
-/* ---------------------------------- API ---------------------------------- */
-// const apiKey = "1e177bf38b86799efd2f4446fb4e06e4";
-
 /* ---------------------------- LIST ITEMS (HOME) --------------------------- */
 
 export const defaultClothingItems = [
@@ -47,66 +44,63 @@ export const defaultClothingItems = [
 export const weatherOptions = [
   /* ----------------------------------- DAY ---------------------------------- */
   {
-    url: require("../../images/weatherConditions/day/day-cloudy.svg").default,
+    url: require("../images/weatherConditions/day/day-cloudy.svg").default,
     day: true,
     type: "day-cloudy",
   },
   {
-    url: require("../../images/weatherConditions/day/day-fog.svg").default,
+    url: require("../images/weatherConditions/day/day-fog.svg").default,
     day: true,
     type: "day-fog",
   },
   {
-    url: require("../../images/weatherConditions/day/day-rain.svg").default,
+    url: require("../images/weatherConditions/day/day-rain.svg").default,
     day: true,
     type: "day-rain",
   },
   {
-    url: require("../../images/weatherConditions/day/day-snow.svg").default,
+    url: require("../images/weatherConditions/day/day-snow.svg").default,
     day: true,
     type: "day-snow",
   },
   {
-    url: require("../../images/weatherConditions/day/day-storm.svg").default,
+    url: require("../images/weatherConditions/day/day-storm.svg").default,
     day: true,
     type: "day-storm",
   },
   {
-    url: require("../../images/weatherConditions/day/day-sunny.svg").default,
+    url: require("../images/weatherConditions/day/day-sunny.svg").default,
     day: true,
     type: "day-sunny",
   },
   /* ---------------------------------- NIGHT --------------------------------- */
   {
-    url: require("../../images/weatherConditions/night/night-cloudy.svg")
-      .default,
+    url: require("../images/weatherConditions/night/night-cloudy.svg").default,
     day: false,
     type: "night-cloudy",
   },
   {
-    url: require("../../images/weatherConditions/night/night-fog.svg").default,
+    url: require("../images/weatherConditions/night/night-fog.svg").default,
     day: false,
     type: "night-fog",
   },
   {
-    url: require("../../images/weatherConditions/night/night-rain.svg").default,
+    url: require("../images/weatherConditions/night/night-rain.svg").default,
     day: false,
     type: "night-rain",
   },
   {
-    url: require("../../images/weatherConditions/night/night-snow.svg").default,
+    url: require("../images/weatherConditions/night/night-snow.svg").default,
     day: false,
     type: "night-snow",
   },
   {
-    url: require("../../images/weatherConditions/night/night-storm.svg")
-      .default,
+    url: require("../images/weatherConditions/night/night-storm.svg").default,
     day: false,
     type: "night-storm",
   },
   {
-    url: require("../../images/weatherConditions/night/night-sunny.svg")
-      .default,
+    url: require("../images/weatherConditions/night/night-sunny.svg").default,
     day: false,
     type: "night-sunny",
   },
