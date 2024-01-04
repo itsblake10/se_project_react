@@ -3,3 +3,7 @@
   /* width: 100vw; */
   height: fit-content;
 }
+
+body {
+  margin: 0;
+}

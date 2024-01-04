@@ -1,6 +1,6 @@
 import "./Header.css";
 
-const Header = ({ onCreateModal }) => {
+const Header = ({ onCreateModal, location }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -14,7 +14,9 @@ const Header = ({ onCreateModal }) => {
           src={require("../../images/header/headerLogo.svg").default}
           alt="Logo"
         />
-        <div className="header__date">{currentDate}/LOCATION</div>
+        <div className="header__date">
+          {currentDate} / {location}
+        </div>
       </div>
       <div className="header__container-right">
         <button className="header__add-clothing-button" onClick={onCreateModal}>

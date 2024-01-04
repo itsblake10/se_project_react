@@ -1,5 +1,5 @@
-.item__modal {
-  transition: visibility 0.2s, opacity 0.2s linear;
+.modal {
+  transition: visibility 0.5s, opacity 0.2s linear;
 }
 
 .item__modal-container {

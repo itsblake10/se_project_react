@@ -1,7 +1,5 @@
 .modal {
-  visibility: visible;
-  transition: visibility 0.2s, opacity 0.2s linear;
-  opacity: 100%;
+  transition: visibility 0.5s, opacity 0.2s linear;
 }
 
 .modal__container {
@@ -109,4 +107,9 @@
 
 .modal__radio-button {
   margin: 0 8px 10px 0;
+  min-width: 16px;
+  min-height: 16px;
+}
+.modal__radio-button:checked {
+  accent-color: black;
 }

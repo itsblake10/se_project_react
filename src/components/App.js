@@ -4,12 +4,22 @@ import Main from "./Main/Main.js";
 import Footer from "./Footer/Footer.js";
 import ModalWithForm from "./ModalWithForm/ModalWithForm.js";
 import ItemModal from "./ItemModal/ItemModal.js";
+import { getWeatherData } from "./utils/weatherApi.js";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-  const weatherTemp = "102";
   const [selectedItem, setSelectedItem] = useState({});
   const [activeModal, setActiveModal] = useState("inactive");
+  const [temp, setTemp] = useState(0);
+  const [currentLocation, setLocation] = useState("");
+
+  useEffect(() => {
+    getWeatherData().then((data) => {
+      setTemp(data.main.temp);
+      setLocation(data.name);
+    });
+  }, []);
 
   const handleSelectedItem = (item) => {
     setActiveModal("preview");
@@ -24,10 +34,25 @@ function App() {
     setActiveModal("inactive");
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      handleCloseModal();
+    }
+  };
+
+  const handleClickOutside = (event) => {
+    if (!event.target.closest(".modal")) {
+      handleCloseModal();
+    }
+  };
+
+  document.addEventListener("keydown", handleKeyDown);
+  document.addEventListener("mousedown", handleClickOutside);
+
   return (
     <div className="App">
-      <Header onCreateModal={handleCreateModal} />
-      <Main weatherTemp={weatherTemp} onSelectItem={handleSelectedItem} />
+      <Header onCreateModal={handleCreateModal} location={currentLocation} />
+      <Main weatherTemp={temp} onSelectItem={handleSelectedItem} />
       <Footer />
       {activeModal === "create" && (
         <ModalWithForm
