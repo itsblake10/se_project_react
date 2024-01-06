@@ -10,16 +10,44 @@ import { useEffect } from "react";
 
 function App() {
   const [selectedItem, setSelectedItem] = useState({});
-  const [activeModal, setActiveModal] = useState("inactive");
+  const [activeModal, setActiveModal] = useState("");
   const [temp, setTemp] = useState(0);
   const [currentLocation, setLocation] = useState("");
 
   useEffect(() => {
-    getWeatherData().then((data) => {
-      setTemp(data.main.temp);
-      setLocation(data.name);
-    });
+    getWeatherData()
+      .then((data) => {
+        setTemp(data.main.temp);
+        setLocation(data.name);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+      });
   }, []);
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (event) => {
+      if (event.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".modal__container")) {
+        handleCloseModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [activeModal]);
 
   const handleSelectedItem = (item) => {
     setActiveModal("preview");
@@ -31,23 +59,13 @@ function App() {
   };
 
   const handleCloseModal = () => {
-    setActiveModal("inactive");
+    setActiveModal("");
   };
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      handleCloseModal();
-    }
+  const handleRadioButtons = (event) => {
+    const radioButton = event.target;
+    console.log(`Selected value: ${radioButton.value}`);
   };
-
-  const handleClickOutside = (event) => {
-    if (!event.target.closest(".modal")) {
-      handleCloseModal();
-    }
-  };
-
-  document.addEventListener("keydown", handleKeyDown);
-  document.addEventListener("mousedown", handleClickOutside);
 
   return (
     <div className="App">
@@ -57,7 +75,7 @@ function App() {
       {activeModal === "create" && (
         <ModalWithForm
           title="New Garment"
-          name=""
+          name="add-clothing"
           buttonText="Add garment"
           onClose={handleCloseModal}
         >
@@ -93,6 +111,8 @@ function App() {
                 type="radio"
                 value="Hot"
                 id="hot"
+                name="weatherType"
+                onChange={handleRadioButtons}
               />
               Hot
             </label>
@@ -102,6 +122,8 @@ function App() {
                 type="radio"
                 value="Warm"
                 id="warm"
+                name="weatherType"
+                onChange={handleRadioButtons}
               />
               Warm
             </label>
@@ -111,6 +133,8 @@ function App() {
                 type="radio"
                 value="Cold"
                 id="cold"
+                name="weatherType"
+                onChange={handleRadioButtons}
               />
               Cold
             </label>

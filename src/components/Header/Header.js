@@ -1,4 +1,5 @@
 import "./Header.css";
+import logo from "../../images/header/headerLogo.svg";
 
 const Header = ({ onCreateModal, location }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -9,11 +10,7 @@ const Header = ({ onCreateModal, location }) => {
   return (
     <header className="header">
       <div className="header__container-left">
-        <img
-          className="header__logo"
-          src={require("../../images/header/headerLogo.svg").default}
-          alt="Logo"
-        />
+        <img className="header__logo" src={logo} alt="Logo" />
         <div className="header__date">
           {currentDate} / {location}
         </div>

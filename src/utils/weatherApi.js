@@ -5,7 +5,7 @@ const lon = 174.763336;
 
 export const getWeatherData = () => {
   const weatherData = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/weather?units=imperial&lat=${lat}&lon=${lon}&appid=${apiKey}`
   ).then((res) => {
     if (!res.ok) {
       return Promise.reject(`Error: ${res.status}`);

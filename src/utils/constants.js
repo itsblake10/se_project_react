@@ -1,3 +1,5 @@
+import heartIcon from "../images/heartIcon.svg";
+
 /* ---------------------------- LIST ITEMS (HOME) --------------------------- */
 
 export const defaultClothingItems = [
