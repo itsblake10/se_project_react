@@ -2,7 +2,7 @@ import "./ItemModal.css";
 
 const ItemModal = ({ selectedItem, onClose }) => {
   return (
-    <div className="modal modal__overlay" g>
+    <div className="modal modal__overlay">
       <div className="item__modal-container">
         <button className="item__modal-close-button" onClick={onClose}></button>
         <img

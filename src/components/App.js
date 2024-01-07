@@ -35,7 +35,8 @@ function App() {
     };
 
     const handleClickOutside = (event) => {
-      if (!event.target.closest(".modal__container")) {
+      const modalOverlay = document.querySelector(".modal__overlay");
+      if (event.target === modalOverlay) {
         handleCloseModal();
       }
     };

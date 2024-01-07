@@ -15,14 +15,9 @@ const Main = ({ weatherTemp, onSelectItem }) => {
     }
   }, [weatherTemp]);
 
-  //   console.log(weatherType);
-
   const filteredItems = defaultClothingItems.filter((item) => {
-    // console.log(item);
     return item.weather.toLowerCase() === weatherType;
   });
-
-  //   console.log(filteredItems);
 
   return (
     <main className="main">

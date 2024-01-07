@@ -1,5 +1,6 @@
 import "./Header.css";
 import logo from "../../images/header/headerLogo.svg";
+import profileAvatar from "../../images/header/headerAvatar.svg";
 
 const Header = ({ onCreateModal, location }) => {
   const currentDate = new Date().toLocaleString("default", {
@@ -23,7 +24,7 @@ const Header = ({ onCreateModal, location }) => {
           <p className="header__profile-name">NAME NAMENAME</p>
           <img
             className="header__profile-avatar"
-            src={require("../../images/header/headerAvatar.svg").default}
+            src={profileAvatar}
             alt="Profile Avatar"
           />
         </div>
