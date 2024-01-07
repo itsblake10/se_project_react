@@ -35,8 +35,7 @@ function App() {
     };
 
     const handleClickOutside = (event) => {
-      const modalOverlay = document.querySelector(".modal__overlay");
-      if (event.target === modalOverlay) {
+      if (event.target.classList.contains("modal")) {
         handleCloseModal();
       }
     };
@@ -150,3 +149,5 @@ function App() {
 }
 
 export default App;
+
+/* ------------------------------------ x ----------------------------------- */

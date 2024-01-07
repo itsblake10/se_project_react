@@ -1,8 +1,5 @@
 .modal {
   transition: visibility 0.5s, opacity 0.2s linear;
-}
-
-.modal__overlay {
   position: fixed;
   top: 0;
   left: 0;
