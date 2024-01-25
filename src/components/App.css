@@ -6,5 +6,9 @@
 
 .App {
   background-color: #f3f3f3;
-  height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  max-height: 1440px;
 }

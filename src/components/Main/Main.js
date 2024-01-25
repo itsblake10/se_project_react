@@ -3,8 +3,14 @@ import { defaultClothingItems } from "../../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
 import { useMemo } from "react";
+import React from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const Main = ({ weatherTemp, onSelectItem }) => {
+  const { currentTemperatureUnit: temperatureUnit } = React.useContext(
+    CurrentTemperatureUnitContext
+  );
+
   const weatherType = useMemo(() => {
     if (weatherTemp >= 86) {
       return "hot";
@@ -24,7 +30,7 @@ const Main = ({ weatherTemp, onSelectItem }) => {
       <WeatherCard day={false} type="night-sunny" weatherTemp={weatherTemp} />
       <section className="home__grid">
         <p className="current__weather">
-          Today is {weatherTemp}°F / You may want to wear:
+          Today is {weatherTemp}°{temperatureUnit} / You may want to wear:
         </p>
         <ul className="item__list">
           {filteredItems.map((item) => (
