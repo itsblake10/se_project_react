@@ -1,17 +1,19 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
-import { defaultClothingItems } from "../../utils/constants.js";
+// import { defaultClothingItems } from "../../utils/constants.js";
 
-const ClothesSection = () => {
+const ClothesSection = ({ onCreateModal, onSelectItem, clothingItems }) => {
   return (
     <div className="clothes-section__container">
       <div className="clothes-section__top-container">
         <p className="clothes-section__title">Your items</p>
-        <button className="clothes-section__add-button">+ Add new</button>
+        <button className="clothes-section__add-button" onClick={onCreateModal}>
+          + Add new
+        </button>
       </div>
       <ul className="clothes-section__list">
-        {defaultClothingItems.map((item) => (
-          <ItemCard item={item} key={item._id} />
+        {clothingItems.map((item) => (
+          <ItemCard item={item} key={item._id} onSelectItem={onSelectItem} />
         ))}
       </ul>
     </div>

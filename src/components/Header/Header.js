@@ -26,11 +26,7 @@ const Header = ({ onCreateModal, location }) => {
           + Add clothes
         </button>
         <div className="header__profile">
-          <Link
-            to="/profile"
-            className="profile__link"
-            style={{ textDecoration: "none", color: "Black" }}
-          >
+          <Link to="/profile" className="profile__link">
             <p className="header__profile-name">NAME NAMENAME</p>
             <img
               className="header__profile-avatar"

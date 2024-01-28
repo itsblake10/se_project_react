@@ -61,3 +61,27 @@
   font-weight: 500;
   margin: 12px 0 32px 32px;
 }
+
+.item__modal-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.item__modal-descriptions {
+  display: flex;
+  flex-direction: column;
+}
+
+.item__modal-delete-button {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 24px;
+  font-weight: 700;
+  max-height: 24px;
+  max-width: 101px;
+  margin: 20px 32px 0 0;
+  background: none;
+  border: none;
+  color: #ff4d00;
+  cursor: pointer;
+}
