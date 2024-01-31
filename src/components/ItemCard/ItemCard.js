@@ -11,7 +11,7 @@ const ItemCard = ({ item, onSelectItem }) => {
         </button>
       </div>
       <button className="item__card-button" onClick={() => onSelectItem(item)}>
-        <img className="item__card-image" src={item.link} alt={item.name} />
+        <img className="item__card-image" src={item.imageUrl} alt={item.name} />
       </button>
     </li>
   );

@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import { Route, Switch } from "react-router-dom";
+import { getItems, addItem, deleteItem } from "../utils/api.js";
 // import { defaultClothingItems } from "../utils/constants.js";
 
 function App() {
@@ -64,6 +65,43 @@ function App() {
     };
   }, [activeModal]);
 
+  useEffect(() => {
+    getItems()
+      .then((data) => {
+        console.log(data);
+        setClothingItems(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+      });
+  }, []);
+
+  const handleAddItemSubmit = (newItem) => {
+    addItem(newItem.name, newItem.imageUrl, newItem.weather)
+      .then((data) => {
+        setClothingItems([data, ...clothingItems]);
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error("Error adding item:", error);
+      });
+  };
+
+  const handleCardDelete = () => {
+    let newClothingItems = clothingItems.filter(
+      (item) => item._id !== selectedItem._id
+    );
+    setClothingItems(newClothingItems);
+
+    deleteItem(selectedItem._id)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error("Error adding item:", error);
+      });
+  };
+
   const handleSelectedItem = (item) => {
     setActiveModal("preview");
     setSelectedItem(item);
@@ -85,20 +123,10 @@ function App() {
       : setCurrentTemperatureUnit("F");
   };
 
-  // useEffect(() => {
-  //   console.log(clothingItems);
-  // }, [clothingItems]);
-
-  const handleAddItemSubmit = (newItem) => {
-    setClothingItems([newItem, ...clothingItems]);
-    handleCloseModal();
-    console.log(clothingItems);
-    console.log(newItem);
-  };
-
   // const handleCardDelete = (itemId) => {
-  //   let newClothingItems = clothingItems.filter((item) => item.id !== itemId);
+  //   let newClothingItems = clothingItems.filter((item) => item._id !== itemId);
   //   setClothingItems(newClothingItems);
+  //   handleCloseModal();
   // };
 
   return (
@@ -137,7 +165,11 @@ function App() {
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedItem={selectedItem} onClose={handleCloseModal} />
+          <ItemModal
+            selectedItem={selectedItem}
+            onClose={handleCloseModal}
+            onDeleteCard={handleCardDelete}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>

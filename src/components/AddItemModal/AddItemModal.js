@@ -9,7 +9,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   const [weatherType, setWeatherType] = useState({});
 
   useEffect(() => {
-    //reset input fields to empty when isOpen = true
     if (isOpen === true) {
       setItemName("");
       setImageUrl("");
@@ -31,7 +30,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 
   const newItem = {
     name: itemName,
-    url: imageUrl,
+    imageUrl: imageUrl,
     weather: weatherType,
   };
 
@@ -39,12 +38,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     event.preventDefault();
     onAddItem(newItem);
   }
-
-  // const formData = {
-  //   itemName,
-  //   imageUrl,
-  //   weatherType,
-  // };
 
   return (
     <ModalWithForm
@@ -75,7 +68,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             name="link"
             placeholder="Image URL"
             minLength="1"
-            maxLength="30"
+            maxLength="1000"
             onChange={handleImageUrlChange}
           />
         </label>

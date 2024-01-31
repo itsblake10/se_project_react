@@ -12,8 +12,12 @@ const ClothesSection = ({ onCreateModal, onSelectItem, clothingItems }) => {
         </button>
       </div>
       <ul className="clothes-section__list">
-        {clothingItems.map((item) => (
-          <ItemCard item={item} key={item._id} onSelectItem={onSelectItem} />
+        {clothingItems.map((item, index) => (
+          <ItemCard
+            item={item}
+            key={`unique-id${index}`}
+            onSelectItem={onSelectItem}
+          />
         ))}
       </ul>
     </div>
