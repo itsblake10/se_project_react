@@ -18,29 +18,21 @@
   display: inline-block;
   width: 56px;
   height: 28px;
-  color: aqua;
 }
 
-/* .toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-} */
+.toggle-switch:hover .slider {
+  border: 2px solid black;
+}
 
-/* .label {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.4s;
-} */
+.toggle-switch:hover .slider__label_c {
+  transition: 0.2s;
+  color: #000000;
+}
 
-/* .label.active {
-  color: #2196f3;
-} */
+.temperature-toggle__checkbox:checked .toggle-switch:hover .slider__label_f {
+  transition: 0.2s;
+  color: #000000;
+}
 
 .slider {
   position: absolute;
@@ -53,7 +45,6 @@
   border-radius: 34px;
   transition: 0.4s;
   border: 2px solid #7e7e7e;
-  border-radius: 20px;
 }
 
 .slider:before {
@@ -71,12 +62,48 @@
 .slider:hover {
   transition: 0.2s;
   border: 2px solid black;
+  transform: translateX(2px);
 }
 
-/* input:checked + .slider {
-  background-color: white;
-} */
+.slider__labels {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #666;
+}
 
-input:checked + .slider:before {
+.slider__label_f {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 17.36px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  padding: 6px;
+  color: white;
+}
+
+.slider__label_c {
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 17.36px;
+  font-weight: 700;
+  flex: 1;
+  text-align: center;
+  padding: 6px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.temperature-toggle__checkbox:checked ~ .slider__labels .slider__label_c {
+  color: white;
+}
+
+.temperature-toggle__checkbox:checked ~ .slider__labels .slider__label_f {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.temperature-toggle__checkbox:checked + .slider:before {
   transform: translateX(28px);
 }

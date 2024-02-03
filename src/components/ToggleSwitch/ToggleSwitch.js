@@ -3,8 +3,9 @@ import React from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const ToggleSwitch = () => {
-  const { handleToggleSwitchChange: handleToggleSwitchChange } =
-    React.useContext(CurrentTemperatureUnitContext);
+  const { handleToggleSwitchChange } = React.useContext(
+    CurrentTemperatureUnitContext
+  );
 
   return (
     <div className="temperature-toggle__container">
@@ -14,11 +15,11 @@ const ToggleSwitch = () => {
           type="checkbox"
           onChange={handleToggleSwitchChange}
         />
-        <span className="slider">
-          {/* <span className={`label ${isChecked ? "active" : ""}`}>F</span>
-          <span className={`label ${isChecked ? "" : "active"}`}>C</span> */}
-        </span>
-        asdasdasdsad
+        <span className="slider"></span>
+        <div className="slider__labels">
+          <span className="slider__label_f">F</span>
+          <span className="slider__label_c">C</span>
+        </div>
       </label>
     </div>
   );

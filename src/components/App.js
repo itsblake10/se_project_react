@@ -68,7 +68,6 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
         setClothingItems(data);
       })
       .catch((error) => {
@@ -122,12 +121,6 @@ function App() {
       ? setCurrentTemperatureUnit("C")
       : setCurrentTemperatureUnit("F");
   };
-
-  // const handleCardDelete = (itemId) => {
-  //   let newClothingItems = clothingItems.filter((item) => item._id !== itemId);
-  //   setClothingItems(newClothingItems);
-  //   handleCloseModal();
-  // };
 
   return (
     <div className="App">
