@@ -12,14 +12,24 @@ const Main = ({ weatherTemp, onSelectItem, clothingItems }) => {
   );
 
   const weatherType = useMemo(() => {
-    if (weatherTemp >= 86) {
-      return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
-      return "warm";
-    } else if (weatherTemp <= 65) {
-      return "cold";
+    if (temperatureUnit === "F") {
+      if (weatherTemp >= 86) {
+        return "hot";
+      } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+        return "warm";
+      } else if (weatherTemp <= 65) {
+        return "cold";
+      }
+    } else if (temperatureUnit === "C") {
+      if (weatherTemp >= 30) {
+        return "hot";
+      } else if (weatherTemp >= 18.9 && weatherTemp < 29.4) {
+        return "warm";
+      } else if (weatherTemp < 18.3) {
+        return "cold";
+      }
     }
-  }, [weatherTemp]);
+  }, [weatherTemp, temperatureUnit]);
 
   const filteredItems = clothingItems.filter((item) => {
     return item.weather.toLowerCase() === weatherType;
