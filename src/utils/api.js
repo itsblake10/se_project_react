@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:3001";
 
-const _checkResponse = (res) => {
+export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
@@ -16,7 +16,7 @@ export const getItems = () => {
       "Content-type": "application/json; charset=UTF-8",
     },
   }).then((res) => {
-    return _checkResponse(res);
+    return checkResponse(res);
   });
 };
 
@@ -34,7 +34,7 @@ export const addItem = (name, imageUrl, weather) => {
       weather: weather,
     }),
   })
-    .then((res) => _checkResponse(res))
+    .then((res) => checkResponse(res))
     .then((data) => {
       return data;
     });
@@ -49,6 +49,6 @@ export const deleteItem = (itemId) => {
       "Content-type": "application/json; charset=UTF-8",
     },
   }).then((res) => {
-    return _checkResponse(res);
+    return checkResponse(res);
   });
 };

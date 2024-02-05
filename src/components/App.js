@@ -20,8 +20,8 @@ function App() {
   const [temp, setTemp] = useState(0);
   const [currentLocation, setLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [modalOpen, setModalOpen] = useState(false);
   const [clothingItems, setClothingItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     getWeatherData()
@@ -39,7 +39,7 @@ function App() {
       .catch((error) => {
         console.error("Error fetching weather data:", error);
       });
-  }, [currentTemperatureUnit]);
+  });
 
   useEffect(() => {
     if (!activeModal) return;
@@ -76,6 +76,7 @@ function App() {
   }, []);
 
   const handleAddItemSubmit = (newItem) => {
+    setIsLoading(true);
     addItem(newItem.name, newItem.imageUrl, newItem.weather)
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
@@ -83,22 +84,24 @@ function App() {
       })
       .catch((error) => {
         console.error("Error adding item:", error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleCardDelete = () => {
-    let newClothingItems = clothingItems.filter(
-      (item) => item._id !== selectedItem._id
-    );
-    setClothingItems(newClothingItems);
-
+    setIsLoading(true);
     deleteItem(selectedItem._id)
       .then(() => {
+        const newClothingItems = clothingItems.filter(
+          (item) => item._id !== selectedItem._id
+        );
+        setClothingItems(newClothingItems);
         handleCloseModal();
       })
       .catch((error) => {
         console.error("Error adding item:", error);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleSelectedItem = (item) => {
@@ -108,12 +111,10 @@ function App() {
 
   const handleCreateModal = () => {
     setActiveModal("create");
-    setModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setActiveModal("");
-    setModalOpen(false);
   };
 
   const handleToggleSwitchChange = () => {
@@ -153,8 +154,8 @@ function App() {
         {activeModal === "create" && (
           <AddItemModal
             onClose={handleCloseModal}
-            isOpen={modalOpen}
             onAddItem={handleAddItemSubmit}
+            buttonText={isLoading ? "Saving..." : "Add item"}
           />
         )}
         {activeModal === "preview" && (
@@ -162,6 +163,7 @@ function App() {
             selectedItem={selectedItem}
             onClose={handleCloseModal}
             onDeleteCard={handleCardDelete}
+            buttonText={isLoading ? "Saving..." : "Delete item"}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

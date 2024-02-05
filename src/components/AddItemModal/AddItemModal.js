@@ -3,7 +3,7 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
 import { useEffect } from "react";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose, buttonText }) => {
   const [itemName, setItemName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [weatherType, setWeatherType] = useState({});
@@ -43,7 +43,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     <ModalWithForm
       title="New Garment"
       name="add-clothing"
-      buttonText="Add garment"
+      buttonText={buttonText}
       onClose={onClose}
       onSubmit={handleSubmit}
     >
@@ -55,6 +55,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             type="text"
             name="name"
             placeholder="Name"
+            value={itemName}
             minLength="1"
             maxLength="20"
             onChange={handleNameChange}
@@ -67,6 +68,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
             type="url"
             name="link"
             placeholder="Image URL"
+            value={imageUrl}
             minLength="1"
             maxLength="1000"
             onChange={handleImageUrlChange}

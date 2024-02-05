@@ -1,8 +1,8 @@
 import "./ItemModal.css";
 
-const ItemModal = ({ selectedItem, onClose, onDeleteCard }) => {
+const ItemModal = ({ selectedItem, onClose, onDeleteCard, buttonText }) => {
   return (
-    <div className="modal">
+    <div className="modal item">
       <div className="item__modal-container">
         <button className="item__modal-close-button" onClick={onClose}></button>
         <img
@@ -18,7 +18,7 @@ const ItemModal = ({ selectedItem, onClose, onDeleteCard }) => {
             </p>
           </div>
           <button className="item__modal-delete-button" onClick={onDeleteCard}>
-            Delete item
+            {buttonText}
           </button>
         </div>
       </div>
