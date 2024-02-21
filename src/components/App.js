@@ -3,7 +3,6 @@ import Header from "./Header/Header.js";
 import Main from "./Main/Main.js";
 import Profile from "./Profile/Profile.js";
 import Footer from "./Footer/Footer.js";
-// import ModalWithForm from "./ModalWithForm/ModalWithForm.js";
 import ItemModal from "./ItemModal/ItemModal.js";
 import AddItemModal from "./AddItemModal/AddItemModal.js";
 import { getWeatherData } from "../utils/weatherApi.js";
@@ -12,7 +11,6 @@ import { useEffect } from "react";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import { Route, Switch } from "react-router-dom";
 import { getItems, addItem, deleteItem } from "../utils/api.js";
-// import { defaultClothingItems } from "../utils/constants.js";
 
 function App() {
   const [selectedItem, setSelectedItem] = useState({});
@@ -29,17 +27,19 @@ function App() {
         const temperatureF = `${Math.round(data.main.temp)}`;
         const temperatureC = `${Math.round(((data.main.temp - 32) * 5) / 9)}`;
 
-        const temperature = {
+        const temperatures = {
           F: temperatureF,
           C: temperatureC,
         };
-        setTemp(temperature[currentTemperatureUnit]);
+
+        setTemp(temperatures[currentTemperatureUnit]);
+
         setLocation(data.name);
       })
       .catch((error) => {
         console.error("Error fetching weather data:", error);
       });
-  });
+  }, []);
 
   useEffect(() => {
     if (!activeModal) return;
@@ -118,9 +118,21 @@ function App() {
   };
 
   const handleToggleSwitchChange = () => {
-    currentTemperatureUnit === "F"
-      ? setCurrentTemperatureUnit("C")
-      : setCurrentTemperatureUnit("F");
+    // currentTemperatureUnit === "F"
+    //   ? setCurrentTemperatureUnit("C")
+    //   : setCurrentTemperatureUnit("F");
+
+    if (currentTemperatureUnit === "F") {
+      setCurrentTemperatureUnit("C");
+      const newTempC = Math.round(((temp - 32) * 5) / 9);
+
+      setTemp(newTempC);
+    } else {
+      setCurrentTemperatureUnit("F");
+      const newTempF = Math.round((temp * 9) / 5 + 32);
+
+      setTemp(newTempF);
+    }
   };
 
   return (
