@@ -1,0 +1,27 @@
+/* UserAvatar.css */
+.user-avatar {
+  display: inline-block;
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+}
+
+.user-avatar__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-avatar__placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ccc; /* Placeholder background color */
+  color: #fff; /* Text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* Adjust font size as needed */
+  font-weight: bold;
+  text-transform: uppercase;
+}

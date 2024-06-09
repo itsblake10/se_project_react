@@ -7,8 +7,11 @@ export const checkResponse = (res) => {
   return Promise.reject(`Error: ${res.status}`);
 };
 
-/* ----------------------------------- GET ---------------------------------- */
+/* -------------------------------------------------------------------------- */
+/*                                    ITEMS                                   */
+/* -------------------------------------------------------------------------- */
 
+/* ----------------------------------- GET ITEMS ---------------------------------- */
 export const getItems = () => {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
@@ -20,13 +23,13 @@ export const getItems = () => {
   });
 };
 
-/* ---------------------------------- POST ---------------------------------- */
-
-export const addItem = (name, imageUrl, weather) => {
+/* ---------------------------------- ADD ITEM ---------------------------------- */
+export const addItem = (name, imageUrl, weather, token) => {
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      Authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({
       name: name,
@@ -40,15 +43,58 @@ export const addItem = (name, imageUrl, weather) => {
     });
 };
 
-/* ---------------------------------- DELTE --------------------------------- */
-
-export const deleteItem = (itemId) => {
+/* ---------------------------------- DELETE ITEM --------------------------------- */
+export const deleteItem = (itemId, token) => {
   return fetch(`${baseUrl}/items/${itemId}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json; charset=UTF-8",
+      Authorization: `Bearer ${token}`,
     },
   }).then((res) => {
     return checkResponse(res);
   });
 };
+
+/* -------------------------------------------------------------------------- */
+/*                                    USERS                                   */
+/* -------------------------------------------------------------------------- */
+
+/* ---------------------------------- ADD USER ---------------------------------- */
+// export const addUser = (email, password, name, avatarUrl) => {
+//   return fetch(`${baseUrl}/signup`, {
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8",
+//     },
+//     body: JSON.stringify({
+//       email: email,
+//       password: password,
+//       name: name,
+//       avatarUrl: avatarUrl,
+//     }),
+//   })
+//     .then((res) => checkResponse(res))
+//     .then((data) => {
+//       return data;
+//     });
+// };
+
+/* ------------------------------ LOG USER IN ------------------------------ */
+// export const loginUser = (email, password) => {
+//   return fetch(`${baseUrl}/signin`, {
+//     method: "POST",
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8",
+//     },
+//     body: JSON.stringify({
+//       email: email,
+//       password: password,
+//     }),
+//   })
+//     .then((res) => checkResponse(res))
+//     .then((data) => {
+//       localStorage.setItem("jwt", data.token);
+//       return data;
+//     });
+// };
