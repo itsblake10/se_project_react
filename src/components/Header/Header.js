@@ -13,15 +13,15 @@ const Header = ({
   location,
   isLoggedIn,
 }) => {
-  const currentUser = React.useContext(CurrentUserContext);
-
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
-  const getInitial = () => {
-    return currentUser.name ? currentUser.name.charAt(0).toUpperCase() : "";
+  const { currentUser } = React.useContext(CurrentUserContext);
+
+  const getInitial = (name) => {
+    return name ? name.charAt(0).toUpperCase() : "";
   };
 
   return (
@@ -51,11 +51,16 @@ const Header = ({
                   <img
                     src={currentUser.avatarUrl}
                     alt={`${currentUser.name}'s avatar`}
-                    className="user-avatar__image"
+                    className="header__profile-avatar"
                   />
                 ) : (
-                  <div className="user-avatar__placeholder">
-                    {getInitial(currentUser.name)}
+                  <div
+                    className="header__profile-avatar_placeholder"
+                    alt={`${currentUser.name}'s avatar`}
+                  >
+                    <p className="header__profile-avatar_placeholder-initial">
+                      {getInitial(currentUser.name)}
+                    </p>
                   </div>
                 )}
               </Link>

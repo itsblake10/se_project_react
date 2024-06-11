@@ -8,7 +8,7 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, buttonText }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
   const [userName, setUserName] = useState("");
-  const [AvatarUrl, setAvatarUrl] = useState("");
+  const [avatarUrl, setAvatarUrl] = useState("");
 
   useEffect(() => {
     if (isOpen === true) {
@@ -39,11 +39,12 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, buttonText }) => {
     email: userEmail,
     password: userPassword,
     name: userName,
-    Avatar: AvatarUrl,
+    avatarUrl: avatarUrl,
   };
 
   function handleSubmit(event) {
     event.preventDefault();
+    console.log(newUser);
     onSignUp(newUser);
   }
 
@@ -102,7 +103,7 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, buttonText }) => {
             type="url"
             name="link"
             placeholder="Avatar URL"
-            value={AvatarUrl}
+            value={avatarUrl}
             minLength="1"
             maxLength="1000"
             onChange={handleAvatarUrl}

@@ -25,7 +25,7 @@ function App() {
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // Change???
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -90,7 +90,7 @@ function App() {
       checkToken(token)
         .then((data) => {
           setIsLoggedIn(true);
-          setCurrentUser(data.user);
+          setCurrentUser(data);
         })
         .catch((error) => {
           console.error("Error during token validation:", error);
@@ -145,7 +145,12 @@ function App() {
   // NEW SIGN UP
   const handleSignUp = (newUser) => {
     setIsLoading(true);
-    signUp(newUser.email, newUser.password, newUser.name, newUser.avatarUrl)
+    signUp({
+      email: newUser.email,
+      password: newUser.password,
+      name: newUser.name,
+      avatarUrl: newUser.avatarUrl,
+    })
       .then(() => {
         handleLogin({ email: newUser.email, password: newUser.password });
         handleCloseModal();
@@ -162,7 +167,7 @@ function App() {
     signIn(user.email, user.password)
       .then((data) => {
         setIsLoggedIn(true);
-        setCurrentUser(data.user);
+        setCurrentUser(data);
         handleCloseModal();
       })
       .catch((error) => {
@@ -215,7 +220,7 @@ function App() {
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        <CurrentUserContext.Provider value="currentUser">
+        <CurrentUserContext.Provider value={{ currentUser }}>
           <div className="page">
             <Header
               onRegisterModal={handleRegisterModal}

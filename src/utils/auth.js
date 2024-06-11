@@ -2,7 +2,8 @@
 import { checkResponse } from "./api";
 const baseUrl = "http://localhost:3001";
 
-export const signUp = (name, avatarUrl, email, password) => {
+export const signUp = ({ name, avatarUrl, email, password }) => {
+  console.log(name, avatarUrl, email, password);
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
@@ -12,7 +13,7 @@ export const signUp = (name, avatarUrl, email, password) => {
       email: email,
       password: password,
       name: name,
-      avatarUrl: avatarUrl,
+      avatar: avatarUrl,
     }),
   })
     .then((res) => checkResponse(res))
