@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import "./Header.css";
 import logo from "../../images/header/headerLogo.svg";
-// import profileAvatar from "../../images/header/headerAvatar.svg";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const Header = ({
@@ -47,9 +46,9 @@ const Header = ({
             <div className="header__profile_loggedIn">
               <Link to="/profile" className="profile__link">
                 <p className="header__profile-name">{currentUser.name}</p>
-                {currentUser.avatarUrl ? (
+                {currentUser.avatar ? (
                   <img
-                    src={currentUser.avatarUrl}
+                    src={currentUser.avatar}
                     alt={`${currentUser.name}'s avatar`}
                     className="header__profile-avatar"
                   />

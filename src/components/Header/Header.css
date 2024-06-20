@@ -45,6 +45,10 @@
   cursor: pointer;
 }
 
+.header__add-clothing-button:hover {
+  opacity: 60%;
+}
+
 .header__profile_loggedIn {
   margin: 0 0 0 20px;
 }

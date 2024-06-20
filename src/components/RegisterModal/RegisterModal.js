@@ -44,7 +44,6 @@ const RegisterModal = ({ onSignUp, isOpen, onClose, buttonText }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(newUser);
     onSignUp(newUser);
   }
 

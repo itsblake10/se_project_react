@@ -1,11 +1,11 @@
+import { useMemo } from "react";
+import React from "react";
 import "./Main.css";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useMemo } from "react";
-import React from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-const Main = ({ weatherTemp, onSelectItem, clothingItems }) => {
+const Main = ({ weatherTemp, onSelectItem, clothingItems, onItemLike }) => {
   const { currentTemperatureUnit: temperatureUnit } = React.useContext(
     CurrentTemperatureUnitContext
   );
@@ -43,7 +43,12 @@ const Main = ({ weatherTemp, onSelectItem, clothingItems }) => {
         </p>
         <ul className="item__list">
           {filteredItems.map((item) => (
-            <ItemCard item={item} key={item._id} onSelectItem={onSelectItem} />
+            <ItemCard
+              item={item}
+              key={item._id}
+              onSelectItem={onSelectItem}
+              onItemLike={onItemLike}
+            />
           ))}
         </ul>
       </section>

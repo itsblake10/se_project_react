@@ -3,7 +3,6 @@ import { checkResponse } from "./api";
 const baseUrl = "http://localhost:3001";
 
 export const signUp = ({ name, avatarUrl, email, password }) => {
-  console.log(name, avatarUrl, email, password);
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
@@ -51,5 +50,5 @@ export const checkToken = (token) => {
 };
 
 export function isAuthenticated() {
-  return !!localStorage.getItem("authToken");
+  return !!localStorage.getItem("jwt");
 }

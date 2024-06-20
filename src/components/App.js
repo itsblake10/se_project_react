@@ -11,11 +11,20 @@ import { useEffect } from "react";
 import { CurrentTemperatureUnitContext } from "../contexts/CurrentTemperatureUnitContext.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
 import { Route, Switch } from "react-router-dom";
-import { getItems, addItem, deleteItem } from "../utils/api.js";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  editUserProfile,
+  addItemLike,
+  removeItemLike,
+} from "../utils/api.js";
 import { signIn, signUp, checkToken } from "../utils/auth.js";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.js";
 import RegisterModal from "./RegisterModal/RegisterModal.js";
 import LoginModal from "./LoginModal/LoginModal.js";
+import EditProfileModal from "./EditProfileModal/EditProfileModal.js";
+import { useHistory } from "react-router-dom";
 
 function App() {
   const [selectedItem, setSelectedItem] = useState({});
@@ -26,8 +35,9 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  // Change???
   const [currentUser, setCurrentUser] = useState(null);
+
+  const history = useHistory();
 
   useEffect(() => {
     getWeatherData()
@@ -86,6 +96,7 @@ function App() {
   // NEW
   useEffect(() => {
     const token = localStorage.getItem("jwt");
+    console.log(token);
     if (token) {
       checkToken(token)
         .then((data) => {
@@ -142,6 +153,24 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
+  // NEW HANDLE EDIT PROFILE
+  const handleEditProfile = (newUserData) => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      console.error("No token found, user might not be authenticated");
+      return;
+    }
+    setIsLoading(true);
+    editUserProfile(newUserData.name, newUserData.avatar, token)
+      .then(() => {
+        handleCloseModal();
+      })
+      .catch((error) => {
+        console.error("Error changing profile data:", error);
+      })
+      .finally(() => setIsLoading(false));
+  };
+
   // NEW SIGN UP
   const handleSignUp = (newUser) => {
     setIsLoading(true);
@@ -178,6 +207,44 @@ function App() {
       });
   };
 
+  // NEW
+  const handleItemLike = ({ itemId, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      console.error("No token found, user might not be authenticated");
+      return;
+    }
+
+    const updateItems = (updatedItem) => {
+      setClothingItems((prevItems) =>
+        prevItems.map((item) => (item._id === itemId ? updatedItem : item))
+      );
+    };
+
+    if (!isLiked) {
+      addItemLike(itemId, token)
+        .then((data) => {
+          console.log(data);
+          updateItems(data);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      removeItemLike(itemId, token)
+        .then((data) => {
+          console.log(data);
+          updateItems(data);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  // NEW SIGNOUT
+  const handleSignOut = () => {
+    localStorage.removeItem("jwt");
+    setIsLoggedIn(false);
+    history.push("/");
+  };
+
   const handleSelectedItem = (item) => {
     setActiveModal("preview");
     setSelectedItem(item);
@@ -189,12 +256,17 @@ function App() {
 
   //NEW
   const handleRegisterModal = () => {
-    setActiveModal("Register");
+    setActiveModal("register");
   };
 
   //NEW
   const handleLoginModal = () => {
-    setActiveModal("Login");
+    setActiveModal("login");
+  };
+
+  //NEW
+  const handleEditProfileModal = () => {
+    setActiveModal("edit");
   };
 
   const handleCloseModal = () => {
@@ -235,29 +307,42 @@ function App() {
                   weatherTemp={temp}
                   onSelectItem={handleSelectedItem}
                   clothingItems={clothingItems}
+                  onItemLike={handleItemLike}
                 />
               </Route>
               <ProtectedRoute
                 path="/profile"
-                component={() => (
+                component={(props) => (
                   <Profile
+                    {...props}
                     onCreateModal={handleCreateModal}
+                    onEditProfileModal={handleEditProfileModal}
+                    onSignout={handleSignOut}
                     onSelectItem={handleSelectedItem}
                     clothingItems={clothingItems}
+                    onItemLike={handleItemLike}
                   />
                 )}
               />
             </Switch>
             <Footer />
           </div>
-          {activeModal === "Register" && (
+          {activeModal === "edit" && (
+            <EditProfileModal
+              onClose={handleCloseModal}
+              // Change?
+              onSubmit={handleEditProfile}
+              buttonText={isLoading ? "Loading..." : "Save Changes"}
+            />
+          )}
+          {activeModal === "register" && (
             <RegisterModal
               onClose={handleCloseModal}
               onSignUp={handleSignUp}
               buttonText={isLoading ? "Loading..." : "Sign Up"}
             />
           )}
-          {activeModal === "Login" && (
+          {activeModal === "login" && (
             <LoginModal
               onClose={handleCloseModal}
               onLogin={handleLogin}

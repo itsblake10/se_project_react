@@ -23,14 +23,14 @@ const LoginModal = ({ onLogin, isOpen, onClose, buttonText }) => {
     setUserPassword(event.target.value);
   };
 
-  //   const user = {
-  //     email: userEmail,
-  //     password: userPassword,
-  //   };
+  const user = {
+    email: userEmail,
+    password: userPassword,
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
-    // ...onLogin(user)
+    onLogin(user);
   }
 
   return (
