@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/se_project_react/static/css/main.584b6ee0.css",
-    "main.js": "/se_project_react/static/js/main.738a9a80.js",
-    "static/media/headerAvatar.svg": "/se_project_react/static/media/headerAvatar.56bc3a0c7dba6493c9111a5136bc9831.svg",
+    "main.css": "/se_project_react/static/css/main.4e0c492f.css",
+    "main.js": "/se_project_react/static/js/main.ad4419c4.js",
     "static/media/day-snow.svg": "/se_project_react/static/media/day-snow.a5bb7441280cef64ae081acadb7d6e66.svg",
     "static/media/night-snow.svg": "/se_project_react/static/media/night-snow.20a89d711249712380ea9f4269b386a3.svg",
     "static/media/day-storm.svg": "/se_project_react/static/media/day-storm.51c68e175fd385c6055462b91d462bd5.svg",
@@ -15,16 +14,17 @@
     "static/media/night-cloudy.svg": "/se_project_react/static/media/night-cloudy.c52565b10982a97a5a67275442bd12ee.svg",
     "static/media/day-cloudy.svg": "/se_project_react/static/media/day-cloudy.afb98af2bd43d3a2a330e655695bd2c9.svg",
     "static/media/heartIcon.svg": "/se_project_react/static/media/heartIcon.da4cdc791ad8778a3d5fafdd8d726b02.svg",
+    "static/media/heartIconLiked.svg": "/se_project_react/static/media/heartIconLiked.616e3e7d993626c955811064b26caf99.svg",
     "static/media/modalCloseIconGrey.svg": "/se_project_react/static/media/modalCloseIconGrey.5041c8cbf1275be14ac1.svg",
     "index.html": "/se_project_react/index.html",
     "static/media/modalCloseIconWhite.svg": "/se_project_react/static/media/modalCloseIconWhite.33bc5353dc8c138372ed.svg",
     "static/media/day-sunny.svg": "/se_project_react/static/media/day-sunny.1c3ffd02d92146a2673939be89b88d54.svg",
     "static/media/night-sunny.svg": "/se_project_react/static/media/night-sunny.ae0e6bbe1e0bfc883f3ba207396bf3b4.svg",
-    "main.584b6ee0.css.map": "/se_project_react/static/css/main.584b6ee0.css.map",
-    "main.738a9a80.js.map": "/se_project_react/static/js/main.738a9a80.js.map"
+    "main.4e0c492f.css.map": "/se_project_react/static/css/main.4e0c492f.css.map",
+    "main.ad4419c4.js.map": "/se_project_react/static/js/main.ad4419c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.584b6ee0.css",
-    "static/js/main.738a9a80.js"
+    "static/css/main.4e0c492f.css",
+    "static/js/main.ad4419c4.js"
   ]
 }
