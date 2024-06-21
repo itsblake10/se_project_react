@@ -22,6 +22,10 @@ What To Wear is a React-based web application that recommends clothing suggestio
 
 - **Weather API Integration**: Utilizes a weather API to fetch real-time weather data for the user's location.
 
-### LINK TO PROECT
+### LINK TO FRONT-END
 
 https://itsblake10.github.io/se_project_react
+
+### LINK TO BACKEND
+
+https://github.com/itsblake10/se_project_express
