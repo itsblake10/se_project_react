@@ -54,7 +54,7 @@
   font-family: "Cabinet Grotesk", sans-serif;
   line-height: 20px;
   font-weight: 550;
-  min-width: 124px;
+  min-width: 100px;
   min-height: 36px;
   background-color: black;
   color: white;
@@ -63,8 +63,27 @@
   border-radius: 4px;
 }
 
+.modal__button-two {
+  border: none;
+  font-family: "Cabinet Grotesk", sans-serif;
+  line-height: 20px;
+  font-weight: 550;
+  min-height: 36px;
+  background-color: transparent;
+  color: rgb(180, 173, 173);
+  cursor: pointer;
+  margin: 32px 0 31px 12px;
+  border-radius: 4px;
+  align-self: baseline;
+}
+
 .modal__submit-button:hover {
   opacity: 60%;
+}
+
+.modal__buttons {
+  display: flex;
+  flex-direction: row;
 }
 
 /* .modal__form {

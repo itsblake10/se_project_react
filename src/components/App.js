@@ -340,6 +340,7 @@ function App() {
               onClose={handleCloseModal}
               onSignUp={handleSignUp}
               buttonText={isLoading ? "Loading..." : "Sign Up"}
+              buttonTwoText={"or Log In"}
             />
           )}
           {activeModal === "login" && (
@@ -347,6 +348,7 @@ function App() {
               onClose={handleCloseModal}
               onLogin={handleLogin}
               buttonText={isLoading ? "Loading..." : "Log In"}
+              buttonTwoText={"or Sign Up"}
             />
           )}
           {activeModal === "create" && (
