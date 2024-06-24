@@ -100,6 +100,7 @@ function App() {
     if (token) {
       checkToken(token)
         .then((data) => {
+          console.log(data);
           setIsLoggedIn(true);
           setCurrentUser(data);
         })
@@ -195,6 +196,10 @@ function App() {
     setIsLoading(true);
     signIn(user.email, user.password)
       .then((data) => {
+        return checkToken(data.token);
+      })
+      .then((data) => {
+        console.log(data);
         setIsLoggedIn(true);
         setCurrentUser(data);
         handleCloseModal();
