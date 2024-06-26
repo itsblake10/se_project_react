@@ -31,7 +31,8 @@ const Main = ({ weatherTemp, onSelectItem, clothingItems, onItemLike }) => {
   }, [weatherTemp]);
 
   const filteredItems = clothingItems.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
+    console.log(item.weather);
+    return item.weather?.toLowerCase() === weatherType;
   });
 
   return (
