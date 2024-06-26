@@ -15,12 +15,9 @@ const ClothesSection = ({
     return null;
   }
 
-  console.log(currentUser);
   const userClothingItems = clothingItems.filter(
     (item) => item.owner === currentUser._id
   );
-
-  console.log(userClothingItems);
 
   return (
     <div className="clothes-section__container">

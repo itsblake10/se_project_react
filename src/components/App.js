@@ -100,7 +100,6 @@ function App() {
     if (token) {
       checkToken(token)
         .then((data) => {
-          console.log(data);
           setIsLoggedIn(true);
           setCurrentUser(data);
         })
@@ -163,7 +162,8 @@ function App() {
     }
     setIsLoading(true);
     editUserProfile(newUserData.name, newUserData.avatar, token)
-      .then(() => {
+      .then((updatedUser) => {
+        setCurrentUser(updatedUser);
         handleCloseModal();
       })
       .catch((error) => {
@@ -199,7 +199,6 @@ function App() {
         return checkToken(data.token);
       })
       .then((data) => {
-        console.log(data);
         setIsLoggedIn(true);
         setCurrentUser(data);
         handleCloseModal();
@@ -229,14 +228,12 @@ function App() {
     if (!isLiked) {
       addItemLike(itemId, token)
         .then((data) => {
-          console.log(data);
           updateItems(data);
         })
         .catch((err) => console.log(err));
     } else {
       removeItemLike(itemId, token)
         .then((data) => {
-          console.log(data);
           updateItems(data);
         })
         .catch((err) => console.log(err));
@@ -276,6 +273,10 @@ function App() {
 
   const handleCloseModal = () => {
     setActiveModal("");
+  };
+
+  const handleToggleModal = () => {
+    setActiveModal(activeModal === "register" ? "login" : "register");
   };
 
   const handleToggleSwitchChange = () => {
@@ -335,7 +336,7 @@ function App() {
           {activeModal === "edit" && (
             <EditProfileModal
               onClose={handleCloseModal}
-              // Change?
+              // Change
               onSubmit={handleEditProfile}
               buttonText={isLoading ? "Loading..." : "Save Changes"}
             />
@@ -346,6 +347,7 @@ function App() {
               onSignUp={handleSignUp}
               buttonText={isLoading ? "Loading..." : "Sign Up"}
               buttonTwoText={"or Log In"}
+              onButtonTwoSubmit={handleToggleModal}
             />
           )}
           {activeModal === "login" && (
@@ -354,6 +356,7 @@ function App() {
               onLogin={handleLogin}
               buttonText={isLoading ? "Loading..." : "Log In"}
               buttonTwoText={"or Sign Up"}
+              onButtonTwoSubmit={handleToggleModal}
             />
           )}
           {activeModal === "create" && (

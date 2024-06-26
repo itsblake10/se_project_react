@@ -10,6 +10,7 @@ const LoginModal = ({
   onClose,
   buttonText,
   buttonTwoText,
+  onButtonTwoSubmit,
 }) => {
   const [userEmail, setUserEmail] = useState("");
   const [userPassword, setUserPassword] = useState("");
@@ -47,6 +48,7 @@ const LoginModal = ({
       buttonTwoText={buttonTwoText}
       onClose={onClose}
       onSubmit={handleSubmit}
+      onButtonTwoSubmit={onButtonTwoSubmit}
     >
       <fieldset className="modal__inputs">
         <label className="modal__label">
