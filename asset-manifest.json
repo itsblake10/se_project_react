@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/se_project_react/static/css/main.f77e862b.css",
-    "main.js": "/se_project_react/static/js/main.d8f81f0c.js",
+    "main.js": "/se_project_react/static/js/main.709b2899.js",
     "static/media/day-snow.svg": "/se_project_react/static/media/day-snow.a5bb7441280cef64ae081acadb7d6e66.svg",
     "static/media/night-snow.svg": "/se_project_react/static/media/night-snow.20a89d711249712380ea9f4269b386a3.svg",
     "static/media/day-storm.svg": "/se_project_react/static/media/day-storm.51c68e175fd385c6055462b91d462bd5.svg",
@@ -21,10 +21,10 @@
     "static/media/day-sunny.svg": "/se_project_react/static/media/day-sunny.1c3ffd02d92146a2673939be89b88d54.svg",
     "static/media/night-sunny.svg": "/se_project_react/static/media/night-sunny.ae0e6bbe1e0bfc883f3ba207396bf3b4.svg",
     "main.f77e862b.css.map": "/se_project_react/static/css/main.f77e862b.css.map",
-    "main.d8f81f0c.js.map": "/se_project_react/static/js/main.d8f81f0c.js.map"
+    "main.709b2899.js.map": "/se_project_react/static/js/main.709b2899.js.map"
   },
   "entrypoints": [
     "static/css/main.f77e862b.css",
-    "static/js/main.d8f81f0c.js"
+    "static/js/main.709b2899.js"
   ]
 }
