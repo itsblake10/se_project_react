@@ -24,7 +24,7 @@ const Main = ({ weatherTemp, onSelectItem, clothingItems, onItemLike }) => {
         return "hot";
       } else if (weatherTemp >= 18.9 && weatherTemp < 29.4) {
         return "warm";
-      } else if (weatherTemp < 18.3) {
+      } else if (weatherTemp < 18.9) {
         return "cold";
       }
     }
