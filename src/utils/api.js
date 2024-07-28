@@ -1,4 +1,7 @@
-const baseUrl = "http://localhost:3001";
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.blakesdomain.crabdance.com"
+    : "http://localhost:3001";
 
 export const checkResponse = (res) => {
   if (res.ok) {
@@ -104,46 +107,3 @@ export const removeItemLike = (itemId, token) => {
       return data;
     });
 };
-
-/* -------------------------------------------------------------------------- */
-/*                                    USERS                                   */
-/* -------------------------------------------------------------------------- */
-
-/* ---------------------------------- ADD USER ---------------------------------- */
-// export const addUser = (email, password, name, avatarUrl) => {
-//   return fetch(`${baseUrl}/signup`, {
-//     method: "POST",
-//     headers: {
-//       "Content-type": "application/json; charset=UTF-8",
-//     },
-//     body: JSON.stringify({
-//       email: email,
-//       password: password,
-//       name: name,
-//       avatarUrl: avatarUrl,
-//     }),
-//   })
-//     .then((res) => checkResponse(res))
-//     .then((data) => {
-//       return data;
-//     });
-// };
-
-/* ------------------------------ LOG USER IN ------------------------------ */
-// export const loginUser = (email, password) => {
-//   return fetch(`${baseUrl}/signin`, {
-//     method: "POST",
-//     headers: {
-//       "Content-type": "application/json; charset=UTF-8",
-//     },
-//     body: JSON.stringify({
-//       email: email,
-//       password: password,
-//     }),
-//   })
-//     .then((res) => checkResponse(res))
-//     .then((data) => {
-//       localStorage.setItem("jwt", data.token);
-//       return data;
-//     });
-// };

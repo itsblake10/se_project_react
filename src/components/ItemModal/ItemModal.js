@@ -2,7 +2,6 @@ import "./ItemModal.css";
 import { isAuthenticated } from "../../utils/auth";
 import React from "react";
 
-// NEW
 const ItemModal = ({ selectedItem, onClose, onDeleteCard, buttonText }) => {
   return (
     <div className="modal item">

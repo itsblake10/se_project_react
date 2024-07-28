@@ -59,6 +59,7 @@ function App() {
       });
   }, []);
 
+  // ACTIVE MODAL EFFECT
   useEffect(() => {
     if (!activeModal) return;
 
@@ -83,6 +84,7 @@ function App() {
     };
   }, [activeModal]);
 
+  // GET ITEMS EFFECT
   useEffect(() => {
     getItems()
       .then((data) => {
@@ -93,7 +95,7 @@ function App() {
       });
   }, []);
 
-  // NEW
+  // CHECK TOKEN EFFECT
   useEffect(() => {
     const token = localStorage.getItem("jwt");
     console.log(token);
@@ -110,7 +112,7 @@ function App() {
     }
   }, []);
 
-  // NEW
+  //
   const handleAddItemSubmit = (newItem) => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -130,7 +132,7 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  // NEW
+  //
   const handleCardDelete = () => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -153,7 +155,7 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  // NEW HANDLE EDIT PROFILE
+  // HANDLE EDIT PROFILE
   const handleEditProfile = (newUserData) => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -172,7 +174,7 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  // NEW SIGN UP
+  // NEW SIGN UP ########
   const handleSignUp = (newUser) => {
     setIsLoading(true);
     signUp({
@@ -191,7 +193,7 @@ function App() {
       .finally(() => setIsLoading(false));
   };
 
-  // NEW LOG IN
+  // NEW LOG IN ##########
   const handleLogin = (user) => {
     setIsLoading(true);
     signIn(user.email, user.password)
@@ -211,7 +213,7 @@ function App() {
       });
   };
 
-  // NEW
+  // NEW #####
   const handleItemLike = ({ itemId, isLiked }) => {
     const token = localStorage.getItem("jwt");
     if (!token) {
@@ -240,7 +242,7 @@ function App() {
     }
   };
 
-  // NEW SIGNOUT
+  // NEW SIGNOUT ######
   const handleSignOut = () => {
     localStorage.removeItem("jwt");
     setIsLoggedIn(false);

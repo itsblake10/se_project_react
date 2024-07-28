@@ -33,7 +33,6 @@ const EditProfileModal = ({ onSubmit, isOpen, onClose, buttonText }) => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // Change?
     onSubmit(newUserData);
   }
 

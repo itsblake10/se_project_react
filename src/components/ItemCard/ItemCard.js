@@ -8,7 +8,6 @@ import { isAuthenticated } from "../../utils/auth";
 const ItemCard = ({ item, onSelectItem, onItemLike }) => {
   const currentUser = useContext(CurrentUserContext);
   const isLiked = item.likes.some((item) => item._id === currentUser._id);
-  console.log(isLiked);
 
   const itemLikeButtonClassName = `item__card-like-button ${
     isLiked ? "item__card-like-button_liked" : ""

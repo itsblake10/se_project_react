@@ -1,4 +1,3 @@
-// NEW
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import { useState } from "react";
