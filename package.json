@@ -2,6 +2,7 @@
   "name": "se_project_react",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://blakesdomain.crabdance.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -19,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "scp -r ./build/* blake_cameron1001@blakesdomain.crabdance.com:/home/blake_cameron1001/frontend"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +42,5 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"
-  },
-  "homepage": "https://blakesdomain.crabdance.com"
+  }
 }
